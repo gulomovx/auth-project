@@ -19,7 +19,8 @@ const Posts = () => {
         {posts.map(post => (
           <li key={post.id}>
             <h2>{post.title}</h2>
-            <p>{post.body}</p>
+            <hr />
+            <p className='bg-slate-200'>{post.body}</p>
           </li>
         ))}
       </ul>
