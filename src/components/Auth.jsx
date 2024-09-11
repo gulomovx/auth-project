@@ -1,52 +1,72 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-const Auth = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+const Auth = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
- 
-  const navigate= useNavigate()
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('https://dummyjson.com/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
 
-  const isAuthenticated = username === 'admin' && password === 'admin'
+      const data = await response.json();
 
-  const handleLogin = () => {
-    
-    if (isAuthenticated) {
-      setIsLoggedIn(true);
-      navigate('/products');
-
-    } else {
-      alert('username yoki password xato qaytadan urining');
+      if (response.ok) {
+        // Store the token in localStorage
+        localStorage.setItem('token', data.token);
+        setIsLoggedIn(true);
+        navigate('/'); // Redirect to the home page
+      } else {
+        setError(data.message || 'Login failed. Please try again.');
+      }
+    } catch (error) {
+      setError('An error occurred. Please try again.');
     }
   };
 
   return (
-    <div className='container'>
-      {isLoggedIn ? (
-        <h2>Welcome, {username}!</h2>
-      ) : (
-        <div className=' text-center mx-auto mt-12 '>
-          <h2 className='text-[30px] mb-4'>Login</h2>
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="w-96 p-8 bg-white shadow-md rounded-lg">
+        <h2 className="text-center text-2xl font-bold">Login</h2>
+        {error && <p className="text-red-500">{error}</p>}
+        <div className="mt-4">
+          <label className="block text-sm">Username</label>
           <input
-          className='w-[200px]'
             type="text"
-            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            className="w-full p-2 mt-2 border rounded-lg"
+            placeholder="Enter your username"
           />
-          <br />
+        </div>
+        <div className="mt-4">
+          <label className="block text-sm">Password</label>
           <input
-          className='w-[200px] mt-2'
-          type="password"
-            placeholder="Password"
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-2 mt-2 border rounded-lg"
+            placeholder="Enter your password"
           />
-          <br />
-          <button className='bg-blue-500 mt-2 text-white px-12 py-2' onClick={handleLogin}>Login</button>
         </div>
-      )}
+        <button
+          onClick={handleLogin}
+          className="w-full mt-4 py-2 px-4 bg-blue-600 text-white rounded-lg"
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
 };

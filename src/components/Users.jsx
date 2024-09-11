@@ -13,14 +13,14 @@ const Users = () => {
   }, []);
 
   return (
-    <div>
+    <div className='container overflow-hidden'>
       <h1>Users</h1>
       <ul>
-        {users.map(user => (
+         {users.map(user => (
           <li key={user.id}>
             {user.firstName} {user.lastName} - {user.email}
           </li>
-        ))}
+        ))} 
       </ul>
     </div>
   );

@@ -8,12 +8,15 @@ const Posts = () => {
     const getPosts = async () => {
       const data = await fetchPosts();
       setPosts(data);
+      console.log(data[0]);
+
     };
     getPosts();
+
   }, []);
 
   return (
-    <div>
+    <div className='container overflow-hidden'>
       <h1>Posts</h1>
       <ul>
         {posts.map(post => (
@@ -22,7 +25,7 @@ const Posts = () => {
             <hr />
             <p className='bg-slate-200'>{post.body}</p>
           </li>
-        ))}
+        ))} 
       </ul>
     </div>
   );

@@ -13,15 +13,15 @@ const Todos = () => {
   }, []);
 
   return (
-    <div>
+    <div className='container overflow-hidden'>
       <h1>Todos</h1>
       <ul>
-        {todos.map(todo => (
+         {todos.map(todo => (
           <li key={todo.id}>
             <input type="checkbox" checked={todo.completed} readOnly />
             {todo.todo}
           </li>
-        ))}
+        ))} 
       </ul>
     </div>
   );
