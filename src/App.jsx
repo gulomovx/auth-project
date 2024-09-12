@@ -5,6 +5,7 @@ import Posts from './components/Posts';
 import Todos from './components/Todos';
 import Auth from './components/Auth';
 import Home from './components/Home';
+import Login from './components/Login';
 import RouterLayout from './components/RouterLayout';
  const ProtectedComponent=({children, isLogged, setShowModal})=>{
      if(isLogged){
@@ -16,17 +17,22 @@ import RouterLayout from './components/RouterLayout';
   
 function App() {
   const [isLogged, setIsLogged]=useState(false)
-  
+  const [showModal, setShowModal] = useState(true); 
+  // const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+
+  // const location=useLocation()
+  // router
+  // screen widht change fix
   
 
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <RouterLayout isLoggedIn={isLogged} />,
+      element: <RouterLayout isLogged={isLogged} />,
       children: [
         {
           index: true,
-          element:<Home/>,
+          element:<Auth setIsLoggedIn={setIsLogged} ShowModal={showModal}/>
         },
         {
           path: '/users',
@@ -41,8 +47,9 @@ function App() {
           element:<Posts/>
         },
         {
-          path:'/auth',
-          element:<Auth setIsLoggedIn={setIsLogged} ShowModal={showModal}/>
+          path:'/products',
+          element:<Home/>
+          // element:<Auth setIsLoggedIn={setIsLogged} ShowModal={showModal}/>
         }
         
       ]

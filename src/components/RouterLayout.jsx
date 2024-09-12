@@ -1,15 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Navbar from './Navbar'
-const RouterLayout = (isLogged) => {
+// src/components/RouterLayout.js
+import { Outlet } from 'react-router-dom';
+import Navbar from './Navbar';
+
+function RouterLayout({ isLoggedIn }) {
   return (
     <div>
-      <Navbar isLoggedIn={isLogged}/>
-      <main className=''>
-            <Outlet/>
+      <Navbar isLoggedIn={isLoggedIn} />
+      <main className="">
+        <Outlet />
       </main>
     </div>
-  )
+  );
 }
 
-export default RouterLayout
+export default RouterLayout;
