@@ -13,9 +13,9 @@ const Home = () => {
   }, []);
    
   return (
-    <div className='container mt-8 overflow-hidden'>
+    <div className='container mt-8 '>
       <h1 className='text-center text-[40px] font-extrabold tracking-widest'>All Products</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
         {products.map(product => (
           <div key={product.id} className="border p-4 rounded-lg">
             <img className='' src={product.thumbnail} alt={product.title} />

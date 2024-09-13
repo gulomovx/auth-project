@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css'
 import { BrowserRouter as Router, createBrowserRouter, RouterProvider, Route, Routes, Link, useLocation, useSearchParams, Navigate } from 'react-router-dom';
 import Users from './components/Users';
 import Posts from './components/Posts';
@@ -19,10 +20,7 @@ function App() {
   const [isLogged, setIsLogged]=useState(false)
   const [showModal, setShowModal] = useState(true); 
   // const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
-
-  // const location=useLocation()
-  // router
-  // screen widht change fix
+ 
   
 
   const router = createBrowserRouter([
@@ -49,7 +47,6 @@ function App() {
         {
           path:'/products',
           element:<Home/>
-          // element:<Auth setIsLoggedIn={setIsLogged} ShowModal={showModal}/>
         }
         
       ]
@@ -61,26 +58,7 @@ function App() {
     <div className='overflow-hidden'>
          <RouterProvider router={router}/>
 
-{/* <Router>
-      <div className="App">
-        <nav className="p-4 bg-blue-400 text-white">
-          <Link to="/products" className="mr-4">Products</Link>
-          <Link to="/users" className="mr-4">Users</Link>
-          <Link to="/posts" className="mr-4">Posts</Link>
-          <Link to="/todos" className="mr-4">Todos</Link>
-          <Link to="/auth" className="mr-4">Auth</Link>
-        </nav>
 
-        <Routes>
-          <Route path="/auth" element={<Auth isLogged={isLogged} setIsLogged={setIsLogged} />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/todos" element={<Todos />} />
-
-          <Route path="/products" element={<ProtectedComponent><Products /></ProtectedComponent> } />
-        </Routes>
-      </div>
-    </Router> */}
     
     </div>
 

@@ -17,13 +17,13 @@ const Posts = () => {
 
   return (
     <div className='container overflow-hidden'>
-      <h1>Posts</h1>
-      <ul>
+      <h1 className='text-center text-[50px] text-slate-700 font-extrabold'>Latest Posts</h1>
+      <ul className='grid'>
         {posts.map(post => (
           <li key={post.id}>
-            <h2>{post.title}</h2>
+            <h2 className='text-2xl'>{post.title}</h2>
             <hr />
-            <p className='bg-slate-200'>{post.body}</p>
+            <div className='p-2 rounded-md border'>{post.body.slice(0,120)}...</div>
           </li>
         ))} 
       </ul>
