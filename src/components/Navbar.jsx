@@ -18,11 +18,11 @@ const Navbar = (isLoggedIn) => {
           <div className="hidden text-[16px] font-medi lg:flex ml-14 space-x-12">
           <Link to="/users" className="mr-4 fontsem">Users</Link>
           <Link to="/posts" className="mr-4">Posts</Link>
-          {/* <Link to="/todos" className="mr-4">Todos</Link> */}
+          <Link to="/todos" className="mr-4">Todos</Link>
         </div> 
         {/*  buttons */}
         <div className="hidden lg:flex justify-center space-x-12 items-center">
-         <Link className='border rounded-md px-8 py-2 ' to="/">Profile</Link>
+         <Link className='border rounded-md px-8 py-2 ' to="/profile">Profile</Link>
 
 
             

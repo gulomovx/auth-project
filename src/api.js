@@ -25,6 +25,11 @@ export const fetchPosts = async () => {
   const response = await axios.get(`${API_BASE_URL}/posts`);
   return response.data.posts;
 };
+// fetching posts by id
+export const fetchPostsByid = async (id) => {
+  const response = await axios.get(`${API_BASE_URL}/posts/${id}`);
+  return response.data
+};
 
 // Fetch todos
 export const fetchTodos = async () => {

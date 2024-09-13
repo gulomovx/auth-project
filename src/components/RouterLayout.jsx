@@ -1,11 +1,13 @@
 // src/components/RouterLayout.js
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
+import Header from './Header';
 
 function RouterLayout({ isLoggedIn }) {
   return (
     <div>
-      <Navbar isLoggedIn={isLoggedIn} />
+      <Header/>
+      {/* <Navbar isLoggedIn={isLoggedIn} /> */}
       <main className="">
         <Outlet />
       </main>

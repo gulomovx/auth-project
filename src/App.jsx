@@ -8,6 +8,8 @@ import Auth from './components/Auth';
 import Home from './components/Home';
 import Login from './components/Login';
 import RouterLayout from './components/RouterLayout';
+import Profile from './components/Profile';
+import PostDetail from './pages/PostDetail';
  const ProtectedComponent=({children, isLogged, setShowModal})=>{
      if(isLogged){
        return <Navigate to={'/'}/>
@@ -47,6 +49,18 @@ function App() {
         {
           path:'/products',
           element:<Home/>
+        },
+        {
+          path:'/todos',
+          element:<Todos/>
+        },
+        {
+          path:'/profile',
+          element:<Profile/>
+        },
+        {
+          path:'/posts/:id',
+          element:<PostDetail/>
         }
         
       ]
