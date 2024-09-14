@@ -1,16 +1,16 @@
 // src/components/RouterLayout.js
 import { Outlet } from 'react-router-dom';
-import Navbar from './Navbar';
 import Header from './Header';
+import Footer from './Footer';
 
 function RouterLayout({ isLoggedIn }) {
   return (
-    <div>
+    <div className='flex flex-col justify-between  h-full'>
       <Header/>
-      {/* <Navbar isLoggedIn={isLoggedIn} /> */}
-      <main className="">
+      <main className="min-h-screen">
         <Outlet />
       </main>
+      <Footer/>
     </div>
   );
 }
