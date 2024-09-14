@@ -19,7 +19,7 @@ const Posts = () => {
 
   return (
     <div className='container mt-20 overflow-hidden'>
-      <h1 className='text-center md:text-[50px] text-[40px] text-slate-700 font-extrabold'>Latest Posts</h1>
+      <h1 className='text-center md:text-[50px] text-[30px] text-slate-700 font-extrabold'>Latest Posts</h1>
       <ul className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
         {posts.map(post => (
           <Link to={`/posts/${post.id}`} className=' border rounded-md py-6 px-4 ' key={post.id}>

@@ -14,7 +14,7 @@ const Users = () => {
 
   return (
     <div className='container mt-20 overflow-hidden'>
-      <h1 className='text-center text-[50px] text-slate-700 font-extrabold'>Users</h1>
+      <h1 className='text-center lg:text-[50px] text-[30px] text-slate-700 font-extrabold'>Users</h1>
       <ul>
          {users.map(user => (
           // <li className='p-2 bg-amer-500 mb-2 border-b flex justify-between'  key={user.id}>

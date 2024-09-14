@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className='container mt-24 '>
       <h1 className='text-center text-[40px] font-extrabold tracking-widest'>All Products</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 ">
         {products.map(product => (
       //     <div key={product.id} className="border p-4 rounded-lg">
       //       <img className='' src={product.thumbnail} alt={product.title} />
@@ -29,7 +29,7 @@ const Home = () => {
 
       // 
 
-      <div key={product.id} class="relative m-10 flex w-full mx-auto -z-10 max- flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      <div key={product.id} class="relative mt-4 flex w-full mx-auto -z-10 max- flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
   {/* <a class="relative mx-3 mt-3 flex h-60 overflow-hidden   rounded-xl" href="#"> */}
     <img class="" src={product.thumbnail} alt="product image" />
     <span class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">39% OFF</span>
