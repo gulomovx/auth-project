@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <div className='container mt-24 relative '>
-      <h1 className='text-center text-[40px] text-slate-700 font-extrabold tracking-widest'>All Products</h1>
+      <h1 className='text-center text-[30px] md:text-[40px] text-slate-700 font-extrabold tracking-widest'>All Products</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
         {products.map(product => (
          <Link

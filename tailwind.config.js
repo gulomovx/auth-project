@@ -11,7 +11,13 @@ export default {
         "2xl": "1240px",
       },
     },
-    extend: {},
+    extend: {
+      screens: {
+        'iphone': '430px', // iPhone 14 Pro
+        'ultra':'412px', // for ultra
+        'galaxy': '360px', // Samsung Galaxy 
+      },
+    },
   },
   plugins: [],
 }

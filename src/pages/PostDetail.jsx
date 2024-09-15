@@ -30,7 +30,7 @@ const PostDetail = () => {
   return (
     <div className="max-w-4xl container h-screen  md:text-start mx-auto md:mt-32 mt-20 ">
       <div className=' '>
-        <h1 className="md:text-5xl text-3xl font-bold mb-4">{post?.title}</h1>
+        <h1 className="md:text-5xl text-xl font-bold mb-4">{post?.title}</h1>
         <p className="text-gray-600 text-lg">{post?.body}</p>
       </div>
     </div>
