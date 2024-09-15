@@ -21,7 +21,7 @@ const ProductDetail = () => {
       <img className='bg-slate-200 rounded-xl w-full' src={product?.thumbnail} alt={product?.title} />
       {/* product info */}
        <div className="">
-       <p className='text-slate-800 md:text-3xl text-[25px] font-semibold'>{product?.title}</p>
+       <p className='text-slate-800 md:text-3xl text-[20px] mt-[-25px] font-semibold'>{product?.title}</p>
        <p className='text-slate-800 md:text-md text-sm font-medium'>{product?.description}</p>
        <p className='text-slate-600 text-md font-semibold'>{product?.brand}</p>
        <p className='text-xl font-medium mt-4 text-slate-700'>Price: {product?.price}$</p>
