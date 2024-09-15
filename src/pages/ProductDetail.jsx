@@ -16,13 +16,13 @@ const ProductDetail = () => {
 
 
   return (
-    <div className='container h-screen flex flex-col justify-center items-center mt-16  '>
+    <div className='container h-screen flex flex-col justify-center items-center  md:mt-16  '>
       <div className="flex flex-col w-full md:flex-row gap-12 items-center  border rounded-md  bg-slate-50 p-8">
       <img className='bg-slate-200 rounded-xl w-full' src={product?.thumbnail} alt={product?.title} />
       {/* product info */}
        <div className="">
-       <p className='text-slate-800 text-3xl font-semibold'>{product?.title}</p>
-       <p className='text-slate-800 text-md font-medium'>{product?.description}</p>
+       <p className='text-slate-800 md:text-3xl text-[25px] font-semibold'>{product?.title}</p>
+       <p className='text-slate-800 md:text-md text-sm font-medium'>{product?.description}</p>
        <p className='text-slate-600 text-md font-semibold'>{product?.brand}</p>
        <p className='text-xl font-medium mt-4 text-slate-700'>Price: {product?.price}$</p>
        <p className='text-xl flex items-center font-medium mt-4 text-slate-700'>
