@@ -59,7 +59,7 @@ function App() {
         },
         {
           path:'/products/:id',
-          element:<ProductDetail/>
+          element:<ProductDetail />
         }
 
       ]

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchUsers } from '../api';
 
-const Auth = (isLoggedI) => {
+const Auth = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -10,12 +10,22 @@ const Auth = (isLoggedI) => {
   const [showModal, setShowModal] = useState(true); 
   const navigate = useNavigate();
 
+  // Check if user is logged in on component mount
+  useEffect(() => {
+    const savedUser = localStorage.getItem('isLoggedIn');
+    const savedUsername = localStorage.getItem('username');
+    
+    if (savedUser && savedUsername) {
+      setIsLoggedIn(true);
+      setShowModal(false);
+      setUsername(savedUsername);
+      navigate('/products'); // Automatically navigate to products if logged in
+    }
+  }, [navigate]);
+
   const handleLogin = async () => {
     try {
-      
       const users = await fetchUsers();
-
-    
       const user = users.find(
         (user) => user.username === username && user.password === password
       );
@@ -23,14 +33,26 @@ const Auth = (isLoggedI) => {
       if (user) {
         setIsLoggedIn(true);
         setError('');
-        setShowModal(false); 
-        navigate('/products'); // navigate to products
+        setShowModal(false);
+        
+        // Save login data to localStorage
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('username', username);
+        
+        navigate('/products');
       } else {
         setError('Username or password is incorrect');
       }
     } catch (err) {
       setError('An error occurred during login');
     }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    navigate('/login'); // Redirect to login page after logout
   };
 
   return (
@@ -67,7 +89,12 @@ const Auth = (isLoggedI) => {
       )}
 
       {!showModal && isLoggedIn && (
-        <h2 className="text-center">Welcome, {username}!</h2>
+        <div className="text-center">
+          <h2>Welcome, {username}!</h2>
+          <button onClick={handleLogout} className="bg-red-500 text-white p-2 rounded mt-4">
+            Logout
+          </button>
+        </div>
       )}
     </div>
   );

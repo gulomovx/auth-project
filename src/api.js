@@ -4,7 +4,7 @@ const API_BASE_URL = 'https://dummyjson.com';
 // make request every post, product, users and so on
 // Fetching all products from json data....
 export const fetchProducts = async () => {
-  const response = await axios.get(`${API_BASE_URL}/products?limit=10`);
+  const response = await axios.get(`${API_BASE_URL}/products?limit=20`);
   return response.data.products;
 };
 
