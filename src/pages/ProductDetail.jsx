@@ -16,8 +16,8 @@ const ProductDetail = () => {
 
 
   return (
-    <div className='container h-screen flex flex-col justify-center items-center  md:mt-16  '>
-      <div className="flex flex-col w-full md:flex-row gap-12 items-center  border rounded-md  bg-slate-50 p-8">
+    <div className='container h-screen flex flex-col justify-center items-center mt-[-20px]    md:mt-8  '>
+      <div className="flex flex-col w-full md:flex-row gap-12 items-center  border rounded-md  bg-slate-50 p-4 md:p-8">
       <img className='bg-slate-200 rounded-xl w-full' src={product?.thumbnail} alt={product?.title} />
       {/* product info */}
        <div className="">
