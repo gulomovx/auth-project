@@ -10,7 +10,7 @@ const Auth = () => {
   const [showModal, setShowModal] = useState(true); 
   const navigate = useNavigate();
 
-  // Check if user is logged in on component mount
+  
   useEffect(() => {
     const savedUser = localStorage.getItem('isLoggedIn');
     const savedUsername = localStorage.getItem('username');
@@ -19,7 +19,7 @@ const Auth = () => {
       setIsLoggedIn(true);
       setShowModal(false);
       setUsername(savedUsername);
-      navigate('/products'); // Automatically navigate to products if logged in
+      navigate('/products'); 
     }
   }, [navigate]);
 

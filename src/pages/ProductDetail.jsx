@@ -16,7 +16,7 @@ const ProductDetail = () => {
 
 
   return (
-    <div className='container h-screen flex flex-col justify-center items-center   mt-4 iphone:mt-[-40px] ultra:mt-[-40px] galaxy:mt-12 md:mt-[-350px] lg:mt-4  '>
+    <div className='container h-screen flex flex-col justify-center items-center   mt-4 iphone:mt-[-40px] ultra:mt-[-40px] galaxy:mt-12 md:mt-[-350px] lg:mt-8  '>
       <div className="flex flex-col w-full md:flex-row gap-12 items-center  border rounded-md  bg-slate-50 p-4 md:p-8">
       <img className='bg-slate-200 rounded-xl w-full' src={product?.thumbnail} alt={product?.title} />
       {/* product info */}

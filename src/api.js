@@ -8,7 +8,7 @@ export const fetchProducts = async () => {
   return response.data.products;
 };
 
-// Fetching single product by 
+// Fetching single product by  id
 export const fetchProductById = async (id) => {
   const response = await axios.get(`${API_BASE_URL}/products/${id}`);
   return response.data;
