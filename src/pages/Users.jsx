@@ -17,19 +17,8 @@ const Users = () => {
       <h1 className='text-center lg:text-[50px] text-[30px] text-slate-700 font-extrabold'>Users</h1>
       <ul>
          {users.map(user => (
-          // <li className='p-2 bg-amer-500 mb-2 border-b flex justify-between'  key={user.id}>
-          //   <p className='font-semibold text-[20px]'>
-          //   {user.firstName} {user.lastName} 
 
-          //   </p>
-          //   <p className=''>
-          //   {user.phone}  
-
-          //   </p>
-          //    {user.email}
-
-          // </li>
-          <li class="py-3 sm:py-4">
+          <li key={user.id} class="py-3 sm:py-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
                         <img class="w-8 h-8 rounded-full" src={user.image} alt="Neil image"/>

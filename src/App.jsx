@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
 import { BrowserRouter as Router, createBrowserRouter, RouterProvider, Route, Routes, Link, useLocation, useSearchParams, Navigate } from 'react-router-dom';
-import Users from './components/Users';
-import Posts from './components/Posts';
-import Todos from './components/Todos';
+import Users from './pages/Users';
+import Posts from './pages/Posts';
+import Todos from './pages/Todos';
 import Auth from './components/Auth';
-import Home from './components/Home';
-import Login from './components/Login';
+import Home from './pages/Home';
 import RouterLayout from './components/RouterLayout';
-import Profile from './components/Profile';
 import PostDetail from './pages/PostDetail';
- const ProtectedComponent=({children, isLogged, setShowModal})=>{
-     if(isLogged){
-       return <Navigate to={'/'}/>
-     }else{
-      return children
-     }
- }
-  
+import ProductDetail from './pages/ProductDetail';
+const ProtectedComponent = ({ children, isLogged, setShowModal }) => {
+  if (isLogged) {
+    return <Navigate to={'/'} />
+  } else {
+    return children
+  }
+}
+
 function App() {
-  const [isLogged, setIsLogged]=useState(false)
-  const [showModal, setShowModal] = useState(true); 
-  // const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
- 
-  
+  const [isLogged, setIsLogged] = useState(false)
+  const [showModal, setShowModal] = useState(true);
+
+
 
   const router = createBrowserRouter([
     {
@@ -32,48 +30,49 @@ function App() {
       children: [
         {
           index: true,
-          element:<Auth setIsLoggedIn={setIsLogged} ShowModal={showModal}/>
+          element: <Auth setIsLoggedIn={setIsLogged} ShowModal={showModal} />
         },
         {
           path: '/users',
-          element:<Users/>
+          element: <Users />
         },
         {
           path: '/todos',
-          element:<Todos/>
+          element: <Todos />
         },
         {
           path: '/posts',
-          element:<Posts/>
+          element: <Posts />
         },
         {
-          path:'/products',
-          element:<Home/>
+          path: '/products',
+          element: <Home />
         },
         {
-          path:'/todos',
-          element:<Todos/>
+          path: '/todos',
+          element: <Todos />
         },
-        {
-          path:'/profile',
-          element:<Profile/>
-        },
-        {
-          path:'/posts/:id',
-          element:<PostDetail/>
-        }
         
+        {
+          path: '/posts/:id',
+          element: <PostDetail />
+        },
+        {
+          path:'/products/:id',
+          element:<ProductDetail/>
+        }
+
       ]
     }
   ])
-  
+
   return (
 
     <div className='overflow-hidden'>
-         <RouterProvider router={router}/>
+      <RouterProvider router={router} />
 
 
-    
+
     </div>
 
   );

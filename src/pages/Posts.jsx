@@ -8,7 +8,6 @@ const Posts = () => {
     const getPosts = async () => {
       const data = await fetchPosts();
       setPosts(data);
-      // console.log(data[0]);
 
     };
     getPosts();

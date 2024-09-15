@@ -7,24 +7,24 @@ const Auth = (isLoggedI) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [showModal, setShowModal] = useState(true); // Controls modal visibility
+  const [showModal, setShowModal] = useState(true); 
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      // Fetch users from API
+      
       const users = await fetchUsers();
 
-      // Check if the credentials match any user
+    
       const user = users.find(
-        (user) => user.firstName === username && user.password === password
+        (user) => user.username === username && user.password === password
       );
 
       if (user) {
         setIsLoggedIn(true);
         setError('');
-        setShowModal(false); // Close the modal on successful login
-        navigate('/products'); // Redirect to products page
+        setShowModal(false); 
+        navigate('/products'); // navigate to products
       } else {
         setError('Username or password is incorrect');
       }
