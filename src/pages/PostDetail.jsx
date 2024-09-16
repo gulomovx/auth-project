@@ -38,17 +38,17 @@ const PostDetail = () => {
     
           {/* like  */}
           <div className="flex items-center justify-between gap-2 text-gray-400 italic">
-          <p>{post?.reactions.likes}</p>
           <BiSolidLike size={24}/>
+          <p>{post?.reactions.likes}</p>
           
 
           </div>
           {/* views */}
           <div className="flex items-center justify-between gap-2 text-gray-400 italic">
-          <p>{post?.views}</p>
           <FaRegEye size={24}/>
+          <p>{post?.views}</p>
           
-
+          
           </div>
           {/* tags */}
         <div className="flex items-center md:gap-4 gap-1 text-gray-400 italic">
