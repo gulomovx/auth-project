@@ -54,7 +54,7 @@ const PostDetail = () => {
         <div className="flex items-center gap-4 text-gray-400 italic">
          
          {post?.tags.map(item=>(
-          <p className=''>{item}</p>
+          <p className=''>#{item}</p>
             
          ))}
         </div>
